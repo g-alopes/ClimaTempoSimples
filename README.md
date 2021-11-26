@@ -4,20 +4,20 @@ Com o projeto Clima Tempo Simples pode-se verificar a lista das três cidades co
 
 ### Requisitos:
 
-.NetFramework 4.6.1; 
-Visual Studio;
+.NetFramework 4.6.1; <br />
+Visual Studio;<br />
 MS SQL Server e MS SQL Server Management Studio;
 
 Para executar o projeto deixei separadas as queries de criação do banco de dados, criação de tabelas e inserção de dados no diretório "Banco de Dados" que se encontra no root desse projeto. É necessário o uso do MS SQL Server e do MS SQL Server Management Studio para executar os comandos contidos no diretório "Banco de Dados".
 
 Você deverá executar as queries na seguinte ordem:
 
-Create.Database
-dbo.Estado
-dbo.Cidade
-dbo.PrevisaoClima
-dbo.Estado.data
-dbo.Cidade.data
+Create.Database<br />
+dbo.Estado<br />
+dbo.Cidade<br />
+dbo.PrevisaoClima<br />
+dbo.Estado.data<br />
+dbo.Cidade.data<br />
 dbo.PrevisaoClima.data
 
 ### Para executar:
