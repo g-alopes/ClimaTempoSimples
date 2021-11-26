@@ -1,0 +1,81 @@
+﻿@model ListaDeDados
+
+@{
+    ViewData["Title"] = "Clima";
+}
+
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="titulo-banner">Clima Tempo Simples - Auvo Sistemas</h1>
+    </div>
+    <div class="row justify-content-around previsao-cidades">
+        <div class="col-md-5 box-cidades">
+            <div class="row header-cidades">
+                <div class="col-12">
+                    Cidades mais quentes hoje
+                </div>
+            </div>
+            <div class="container espacamento-cidades">
+                @foreach (var previsao in Model.ListaCidadesMaisQuentes)
+                {
+                    <div class="row">
+                        <div class="col-6">
+                            @previsao.Cidade.Nome/@previsao.Cidade.Estado.Uf
+                        </div>
+                        <div class="col-3 text-right">
+                            Min @previsao.TemperaturaMinima°C
+                        </div>
+                        <div class="col-3 text-right">
+                            Máx @previsao.TemperaturaMaxima°C
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-md-5 box-cidades">
+            <div class="row header-cidades">
+                <div class="col-12">
+                    Cidades mais frias hoje
+                </div>
+            </div>
+            <div class="container espacamento-cidades">
+                @foreach (var previsao in Model.ListaCidadesMaisFrias)
+                {
+                    <div class="row">
+                        <div class="col-6">
+                            @previsao.Cidade.Nome/@previsao.Cidade.Estado.Uf
+                        </div>
+                        <div class="col-3 text-right">
+                            Min @previsao.TemperaturaMinima°C
+                        </div>
+                        <div class="col-3 text-right">
+                            Máx @previsao.TemperaturaMaxima°C
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <label class="text-left" for="cidades"><b>Cidade:</b></label><br>
+            <select id="cidades" onchange="capturarPrevisaoSemanal()">
+                <option value="0" selected>Selecione uma cidade:</option>
+                @foreach (var cidade in Model.ListaCidades)
+                {
+                    <option value="@cidade.Id">@cidade.Nome</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row justify-content-around">
+        <div class="col-12">
+            <br>
+            <div id="partialViewPrevisaoCidade"></div>
+        </div>
+    </div>
+</div>
+
+<div id="loaderPartialView" data-request-url="@Url.Action("CapturarPrevisaoSemanal", "Home" )"></div>
+
